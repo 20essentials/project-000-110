@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;;
+}
+
+body {
+  --color: #eca0ff88;
+  min-height: 100dvh;
+  width: 100%;
+  background-color: black;
+  position: relative;
+  perspective: 100px;
+  transform-style: preserve-3d;
+  transition: perspective 2s ease;
+  overflow: hidden;
+  animation: perspective 20s linear alternate;
+
+  .floor {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: repeating-linear-gradient(transparent 0 30px,
+        var(--color) 31px 32px), repeating-linear-gradient(to right,
+        transparent 0 30px,
+        var(--color) 31px 32px);
+    border-left: 1px solid var(--color);
+    border-top: 1px solid var(--color);
+    transform: rotateX(37deg);
+    top: 0;
+  }
+}
+
+@keyframes perspective {
+  0% {
+    perspective: 1px;
+  }
+
+  100% {
+    perspective: 100px;
+  }
+}
